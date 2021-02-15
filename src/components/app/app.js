@@ -4,11 +4,23 @@ import Header from '../header';
 import RandomChar from '../randomChar';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
+import "./app.css";
+
+import GotService from '../../services/gotService';
 
 
 const App = () => {
+    const service = new GotService();
+
+    service.getAllBooks()
+        .then(res => {
+            res.forEach(item => {
+                console.log(item.name);
+            })
+        });
+
     return (
-        <> 
+        <div className="app"> 
             <Container>
                 <Header />
             </Container>
@@ -27,7 +39,7 @@ const App = () => {
                     </Col>
                 </Row>
             </Container>
-        </>
+        </div>
     );
 };
 

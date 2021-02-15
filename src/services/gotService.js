@@ -1,4 +1,4 @@
-class GotService {
+export default class GotService {
     constructor() {
         this._apiBase = 'https://www.anapioficeandfire.com/api'
     }
@@ -17,11 +17,16 @@ class GotService {
     getCharacter(id) {
         return this.getResource(`/characters/${id}`);
     }
+    getAllBooks() {
+        return this.getResource(`/books`);
+    }
+    getBook(id) {
+        return this.getResource(`/books/${id}`);
+    }
+    getAllHouses() {
+        return this.getResource(`/houses`);
+    }
+    getHouse(id) {
+        return this.getResource(`/houses/${id}`);
+    }
 }
-
-let service = new GotService();
-
-service.getAllCharacters()
-    .then(res => {
-        res.forEach(item => console.log(item.name));
-    });
