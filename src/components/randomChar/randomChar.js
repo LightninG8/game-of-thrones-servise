@@ -3,7 +3,7 @@ import './randomChar.css';
 
 import LoadingSpinner from "../loadingSpinner";
 import GotService from "../../services/gotService";
-
+import ErrorMessage from "../errorMessage";
 
 export default class RandomChar extends Component {
     constructor() {
@@ -26,13 +26,12 @@ export default class RandomChar extends Component {
     }
     onError = () => {
         this.setState({
-            error: true,
+            isError: true,
             isLoading: false
         })
     }
     updateCharacter = () => {
-        // const id = Math.round(Math.random() * 100);
-        const id = 140000;
+        const id = Math.round(Math.random() * 1000);
 
         this.gotService.getCharacter(id)
             .then(this.onCharacterLoaded)
@@ -40,12 +39,16 @@ export default class RandomChar extends Component {
     }
     
     render = () => {
-        const { character, isLoading } = this.state;
+        const { character, isLoading, isError } = this.state;
 
-        const content = isLoading ? <LoadingSpinner/> : <View character={character}/>;
+        const errorMessage = isError ? <ErrorMessage/> : null;
+        const loadingSpinner = isLoading ? <LoadingSpinner/> : null;
+        const content = !(isLoading || isError) ? <View character={character}/> : null;
 
         return (
             <div className="random-block rounded">
+                {errorMessage}
+                {loadingSpinner}
                 {content}
             </div>
         );
