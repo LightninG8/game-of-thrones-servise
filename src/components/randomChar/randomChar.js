@@ -6,10 +6,12 @@ import GotService from "../../services/gotService";
 import ErrorMessage from "../errorMessage";
 
 export default class RandomChar extends Component {
-    constructor() {
-        super();
-
+    componentDidMount = () => {
         this.updateCharacter();
+        this.updateCharacterTimer = setInterval(this.updateCharacter, 5000);
+    }
+    componentWillUnmount = () => {
+        clearInterval(this.updateCharacterTimer);
     }
     state = {
         character: {},
@@ -57,7 +59,7 @@ export default class RandomChar extends Component {
 
 function View({character}) {
     const {name, gender, born, died, culture} = character;
-
+  
     return (
         <>
         <h4>Random Character: {name}</h4>

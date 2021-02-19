@@ -37,16 +37,17 @@ export default class GotService {
     }
     _transformCharacter(character) {
 
-        return {
+        let result = {
             name: character.name,
             gender: character.gender,
             born: character.born,
             died: character.died,
             culture: character.culture,
         }
+        return this._transformNS(result);
     }
     _transformHouse(house) {
-        return {
+        let result = {
             name: house.name,
             region: house.region,
             words: house.words,
@@ -54,13 +55,27 @@ export default class GotService {
             overlord: house.overlord,
             ancestralWeapons: house.ancestralWeapons,   
         }
+        return this._transformNS(result);
     }
     _transformBook(book) {
-        return {
+        let result = {
             name: book.name,
             numberOfPages: book.region,
             publiser: book.publiser,
             released: book.released,
         }
+        return this._transformNS(result);
+    }
+    _transformNS(obj) {
+        let result = Object.entries(obj);
+
+        for (let i = 0; i < result.length; i++) {
+            if (!result[i][1]) {
+                result[i][1] = "N/S"
+            }
+        }
+        // console.log(result);
+        return Object.fromEntries(result);
+
     }
 }
