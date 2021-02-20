@@ -54,7 +54,6 @@ export default class GotService {
         }
     }
     _transformHouse = (house) => {
-        
         return {
             id: this._extractId(house),
             name: this.isSet(house.name),
@@ -62,7 +61,7 @@ export default class GotService {
             words: this.isSet(house.words),
             titles: this.isSet(house.titles),
             overlord: this.isSet(house.overlord),
-            ancestralWeapons: this.isSet(house.ancestralWeapons,  ) 
+            ancestralWeapons: this.isSet(house.ancestralWeapons) 
         }
     }
     _transformBook = (book) => {

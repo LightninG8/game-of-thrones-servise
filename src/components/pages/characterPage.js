@@ -28,7 +28,7 @@ export default class CharacterPage extends React.Component {
                 onItemSelected={this.onItemSelected} 
                 itemId={selectedItem} 
                 getData={this.gotService.getAllCharacters}
-                renderItem={(item) => `${item.name} (${item.gender})`}/>
+                renderItem={(item) => `${item.name}`}/>
         );
 
         const itemDetails = (
