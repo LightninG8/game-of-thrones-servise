@@ -41,7 +41,9 @@ export default class App extends React.Component {
                             <button className="random-char-toggle" onClick={this.onRandomCharToggle}>Toggle Random character</button>
                         </Col>
                     </Row>
+
                     <CharacterPage/>
+                    `123412342341234`
                 </Container>
             </div>
     )}
