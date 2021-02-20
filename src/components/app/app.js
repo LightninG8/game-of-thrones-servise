@@ -43,7 +43,6 @@ export default class App extends React.Component {
                     </Row>
 
                     <CharacterPage/>
-                    `123412342341234`
                 </Container>
             </div>
     )}
