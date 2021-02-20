@@ -6,9 +6,6 @@ import {CharacterPage, BooksPage, HousesPage} from "../pages";
 import ErrorMessage from '../errorMessage';
 import "./app.css";
 
-
-
-
 export default class App extends React.Component {
     state = {
         isRandomCharEnable: true,
