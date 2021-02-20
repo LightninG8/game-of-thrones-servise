@@ -37,7 +37,7 @@ export default class BooksPage extends React.Component {
                 getData={this.gotService.getBook}
             >
                 <Field field='numberOfPages' label='Number of pages'/>
-                <Field field='publisher' label='Publisher'/>
+                <Field field='publiser' label='Publisher'/>
                 <Field field='released' label='Released'/>
             </ItemDetails>
         );
