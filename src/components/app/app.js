@@ -2,10 +2,8 @@ import React from 'react';
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import {CharacterPage, BooksPage, HousesPage, BooksItem} from "../pages";
+import {CharacterPage, BooksPage, HousesPage} from "../pages";
 import ErrorMessage from '../errorMessage';
-import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
-
 import "./app.css";
 
 export default class App extends React.Component {
@@ -29,6 +27,7 @@ export default class App extends React.Component {
         const randomChar = isRandomCharEnable ? <RandomChar/> : null;
 
         return (
+<<<<<<< HEAD
             <Router>
                 <div className="app"> 
                     <Container>
@@ -66,5 +65,24 @@ export default class App extends React.Component {
                 </div>
             </Router>
             
+=======
+            <div className="app"> 
+                <Container>
+                    <Header />
+                </Container>
+                <Container>
+                    <Row>
+                        <Col lg={{size: 5, offset: 0}}>
+                            {randomChar}
+                            <button className="random-char-toggle" onClick={this.onRandomCharToggle}>Toggle Random character</button>
+                        </Col>
+                    </Row>
+                    
+                    <CharacterPage/>
+                    <BooksPage/>
+                    <HousesPage/>
+                </Container>
+            </div>
+>>>>>>> parent of a772d80... Build project
     )}
 }

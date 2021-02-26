@@ -1,24 +1,33 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component} from 'react';
 import './itemList.css';
 
 import LoadingSpinner from "../loadingSpinner";
 
-export default function ItemList({getData, onItemSelected, itemId, renderItem}) {
 
-    const [itemList, setList] = useState([]);    
+export default class ItemList extends Component {
+    state = {
+        itemList: null,
+        activeChar: null
+    }
 
-    useEffect(() => {
+    componentDidMount() {
+        const {getData} = this.props;
+
         getData()
             .then(itemList => {
-                setList(itemList);
-            });
-    }, []);
+                this.setState({
+                    itemList
+                })
+            })
+    }
 
-    const renderItems = (arr) => {
+    renderItems = (arr) => {
+        const {onItemSelected, itemId} = this.props;
+
         return arr.map((item, i) => {
             const {id} = item;
 
-            const label = renderItem(item);
+            const label = this.props.renderItem(item);
 
             let className = "list-group-item";
             
@@ -34,21 +43,19 @@ export default function ItemList({getData, onItemSelected, itemId, renderItem}) 
                 )    
         });
     }
+    render() {
+        const {itemList} = this.state;
 
-    if (!itemList) {
+        if (!itemList) {
+            return <LoadingSpinner/>
+        }
+
+        const items = this.renderItems(itemList);
+
         return (
             <ul className="item-list list-group">
-               <LoadingSpinner/> 
+                {items}
             </ul>
         );
-            
     }
-
-    const items = renderItems(itemList);
-
-    return (
-        <ul className="item-list list-group">
-            {items}
-        </ul>
-    );
 }
