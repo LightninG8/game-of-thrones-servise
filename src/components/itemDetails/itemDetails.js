@@ -69,7 +69,7 @@ export default class ItemDetails extends Component {
         if (!item && isError) {
             return (<ErrorMessage/>)
         } else if (!item && !isLoading) {
-            return (<span className="select-error">Please select an item</span>)
+            return (<span className="select-error">Выберите элемент</span>)
         }
 
         if (isLoading) {
@@ -77,12 +77,8 @@ export default class ItemDetails extends Component {
                 <div className="char-details rounded">
                     <LoadingSpinner/>
                 </div>
-            )
-                
-            
+            )   
         }
-
-
 
         const {name} = item;
 

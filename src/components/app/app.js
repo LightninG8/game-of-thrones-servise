@@ -4,8 +4,9 @@ import Header from '../header';
 import RandomChar from '../randomChar';
 import {CharacterPage, BooksPage, HousesPage, BooksItem} from "../pages";
 import ErrorMessage from '../errorMessage';
+import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+
 import "./app.css";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 
 export default class App extends React.Component {
     state = {
