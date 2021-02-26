@@ -6,8 +6,11 @@
 }
 body {
     overflow-x: hidden;
+<<<<<<< HEAD
     background: url('img/got.jpeg') center center no-repeat;
     background-size: cover;
+=======
+>>>>>>> parent of 9d1f9a4... test
     font-size: 16px;
     height: 100%;	
 }

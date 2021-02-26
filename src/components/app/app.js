@@ -57,7 +57,7 @@ export default class App extends React.Component {
                                 () => (
                                     <>
                                         <h1 className="color-white">Такой страницы нет</h1>
-                                        <Link className="color-white" to="/">На главную</Link>
+                                        <Link to="/">На главную</Link>
                                     </>)
                             }/>
                         </Switch>                  
